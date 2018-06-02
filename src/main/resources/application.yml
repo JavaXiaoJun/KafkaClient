@@ -1,0 +1,24 @@
+server:
+  tomcat.uri-encoding: UTF-8
+  port: 8181
+
+spring:
+  application:
+      name: springkafka-demo
+  kafka:
+      producer:
+        bootstrap-servers: Localhost:9092,Localhost:9092
+        retries: 0
+        batch-size: 16384
+        buffer-memory: 33554432
+        key-serializer: org.apache.kafka.common.serialization.ByteArraySerializer
+        value-serializer: org.apache.kafka.common.serialization.ByteArraySerializer
+      consumer:
+        bootstrap-servers: Localhost:9092,Localhost:9092
+        group-id: test
+        auto-offset-reset: earliest
+        enable-auto-commit: true
+        auto-commit-interval: 100
+        key-deserializer: org.apache.kafka.common.serialization.ByteArrayDeserializer
+        value-deserializer: org.apache.kafka.common.serialization.ByteArrayDeserializer
+
