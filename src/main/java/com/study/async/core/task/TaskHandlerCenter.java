@@ -66,6 +66,12 @@ public class TaskHandlerCenter<T> {
 
     }
 
+    /**
+     * 同步线程模式
+     * @param tasksource
+     * @param handler
+     * @param taskThreadNum
+     */
     public TaskHandlerCenter(TaskSource tasksource,TaskHandler handler,int taskThreadNum) {
 
         this.tasksource = tasksource;
@@ -158,7 +164,7 @@ public class TaskHandlerCenter<T> {
 
         status = Status.STOPPED;
 
-        //todo
+        //todo 发送报警邮件等
         System.out.println("jvm exit");
     }
 
@@ -167,7 +173,7 @@ public class TaskHandlerCenter<T> {
     /**
      * Created by lf52 on 2018/11/22.
      *
-     * 异步模式任务：包括共享任务线程池（适用于快速返回的型的任务）和独立使用线程池（适用于耗时的操作）
+     * 异步模式任务：包括共享任务线程池（适用于快速结束的型的任务）和独立使用线程池（适用于耗时的操作）
      */
      class ConcurrentTask<T> extends AbstractTask<T> {
 
